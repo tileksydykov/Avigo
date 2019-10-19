@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:minHeight="70dp"
+    android:layout_marginStart="3dp"
+    android:layout_marginEnd="3dp"
+    android:layout_marginTop="5dp"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/progressPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="50dp"
+        android:foregroundTint="#414141"
+        android:textColor="@color/success"
+        android:text="47%"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/track"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_above="@+id/progressPercent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="3dp"
+        android:text="start > above > get a book > end"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Name Of Plan"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/rl_up"
+        android:layout_width="45dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@null"
+        android:padding="3dp"
+        app:srcCompat="@drawable/ic_arrow_up_bold" />
+
+    <ImageView
+        android:id="@+id/rl_down"
+        android:layout_width="45dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@null"
+        android:padding="3dp"
+        app:srcCompat="@drawable/ic_arrow_down_bold" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:progressTint="@color/success"
+        android:max="100"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp" />
+
+</RelativeLayout>

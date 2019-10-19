@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0C87E9</color>
+    <color name="colorPrimaryDark">#3F51B5</color>
+    <color name="colorAccent">#000E61</color>
+    <color name="arrow_up_color">#FFFFFF</color>
+    <color name="arrow_down_color">#FFFFFF</color>
+    <color name="success">#00a000</color>
+    <color name="grey">#DCDCF1</color>
+</resources>
