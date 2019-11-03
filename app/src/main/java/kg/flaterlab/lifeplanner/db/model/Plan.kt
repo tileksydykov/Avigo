@@ -12,5 +12,7 @@ data class Plan(
     var visibility: Boolean = false,
     var priority: Long,
     var persentage: Int = 0,
-    var planTrace: String = ""
+    var planTrace: String,
+    var planTraceNum: Int = 0,
+    var planTraceCount: Int = 0
 )

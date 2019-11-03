@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,8 +13,7 @@ import kg.flaterlab.lifeplanner.App
 import kg.flaterlab.lifeplanner.Logger
 import kg.flaterlab.lifeplanner.adapters.MainAdapter
 import kg.flaterlab.lifeplanner.R
-import kg.flaterlab.lifeplanner.data.PageRepository
-import kg.flaterlab.lifeplanner.db.dao.PlanDao
+import kg.flaterlab.lifeplanner.data.AppRepository
 import kg.flaterlab.lifeplanner.db.model.Plan
 
 /**
@@ -25,7 +23,7 @@ class PlaceholderFragment : Fragment() , Logger{
 
     private lateinit var pageViewModel: PageViewModel
 
-    lateinit var pageRepository: PageRepository
+    lateinit var appRepository: AppRepository
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: MainAdapter
@@ -37,8 +35,8 @@ class PlaceholderFragment : Fragment() , Logger{
             .get(PageViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 2)
         }
-        pageRepository = PageRepository(App.getInstance().database!!.planDao())
-        pageViewModel.init(pageRepository)
+        appRepository = AppRepository(App.getInstance().database!!.planDao())
+        pageViewModel.init(appRepository)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

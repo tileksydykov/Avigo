@@ -11,18 +11,42 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/name_of_goal"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/your_goal"
-            android:layout_marginTop="15dp"/>
+            app:counterEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_of_goal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/your_goal"
+                android:layout_marginTop="15dp"
+                android:inputType=
+                    "textCapSentences|textAutoCorrect"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/plans"
+            android:layout_marginTop="15dp"/>
+
+        <LinearLayout
+            android:id="@+id/stepsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
             android:layout_marginTop="15dp"/>
 
         <Button

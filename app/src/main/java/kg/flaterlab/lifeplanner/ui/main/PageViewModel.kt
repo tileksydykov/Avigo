@@ -2,21 +2,15 @@ package kg.flaterlab.lifeplanner.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import kg.flaterlab.lifeplanner.data.PageRepository
+import kg.flaterlab.lifeplanner.data.AppRepository
 import kg.flaterlab.lifeplanner.db.model.Plan
-import java.lang.IllegalArgumentException
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import kg.flaterlab.lifeplanner.Logger
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 
 class PageViewModel : ViewModel(){
 
-    private lateinit var repository: PageRepository
-    fun init(rep: PageRepository) {
+    private lateinit var repository: AppRepository
+    fun init(rep: AppRepository) {
         repository = rep
     }
 

@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 
-class PageRepository (
+class AppRepository (
     private val planDao: PlanDao
 ){
     fun insertPlan(plan: Plan) = runBlocking{
@@ -48,6 +48,10 @@ class PageRepository (
             return getLongPlans()
         }
         return planDao.all
+    }
+
+    fun getPlan(id :Long) :LiveData<Plan>{
+        return planDao.getById(id)
     }
 
     private fun getLongPlans()= planDao.allLong

@@ -7,6 +7,7 @@
     <string name="your_goal">Your goal</string>
     <string name="goal_details">Goal details</string>
     <string name="lorem">lorem</string>
+    <string name="plus">+</string>
 
     <string-array name="plans">
         <item>Short term</item>

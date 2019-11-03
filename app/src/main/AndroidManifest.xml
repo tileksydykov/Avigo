@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.add.PlanActivity"></activity>
+        <activity android:name=".ui.plan.PlanActivity"></activity>
         <activity android:name=".ui.add.AddPlanActivity" />
         <activity
             android:name=".ui.main.MainActivity"

@@ -9,7 +9,7 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import kg.flaterlab.lifeplanner.R
 import kg.flaterlab.lifeplanner.db.model.Plan
-import kg.flaterlab.lifeplanner.ui.add.PlanActivity
+import kg.flaterlab.lifeplanner.ui.plan.PlanActivity
 import kg.flaterlab.lifeplanner.ui.main.PlaceholderFragment
 import kotlinx.android.synthetic.main.main_adapter_list_item.view.*
 
@@ -30,7 +30,7 @@ class MainAdapter(var myDataset: ArrayList<Plan>, var context: PlaceholderFragme
         }
         private fun moveUp(): (View) -> Unit = {
             layoutPosition.takeIf { it > 0 }?.also { currentPosition ->
-                adapter.context.pageRepository.planChangePriority(
+                adapter.context.appRepository.planChangePriority(
                     adapter.myDataset[currentPosition],
                     true)
                 adapter.myDataset[currentPosition].priority--
@@ -44,7 +44,7 @@ class MainAdapter(var myDataset: ArrayList<Plan>, var context: PlaceholderFragme
 
         private fun moveDown(): (View) -> Unit = {
             layoutPosition.takeIf { it < adapter.myDataset.size - 1 }?.also { currentPosition ->
-                adapter.context.pageRepository.planChangePriority(
+                adapter.context.appRepository.planChangePriority(
                     adapter.myDataset[currentPosition],
                 false)
                 adapter.myDataset[currentPosition].priority++
@@ -79,7 +79,7 @@ class MainAdapter(var myDataset: ArrayList<Plan>, var context: PlaceholderFragme
             context.startActivity(intent)
         }
         holder.relativeLayout.setOnLongClickListener {
-            context.pageRepository.deletePlan(plan)
+            context.appRepository.deletePlan(plan)
             true
         }
     }

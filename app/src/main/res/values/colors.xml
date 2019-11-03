@@ -7,4 +7,5 @@
     <color name="arrow_down_color">#FFFFFF</color>
     <color name="success">#00a000</color>
     <color name="grey">#DCDCF1</color>
+    <color name="black">#000000</color>
 </resources>
