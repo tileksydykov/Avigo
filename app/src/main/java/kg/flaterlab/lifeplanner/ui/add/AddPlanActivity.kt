@@ -11,18 +11,21 @@ import kg.flaterlab.lifeplanner.R
 import kg.flaterlab.lifeplanner.data.AppRepository
 import kg.flaterlab.lifeplanner.db.model.Plan
 import kotlinx.android.synthetic.main.activity_add_plan.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kg.flaterlab.lifeplanner.adapters.EditStepAdaptor
+
 
 class AddPlanActivity : AppCompatActivity() {
     private lateinit var viewModel: AddPlanViewModel
     private lateinit var repository: AppRepository
-    lateinit var stepsArray: ArrayList<EditText>
-    val activity: AddPlanActivity = this
+    lateinit var adapterEditText: EditStepAdaptor
+    private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var stepsContainer: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_plan)
-
-        stepsArray = arrayListOf()
 
         var type = 0
         repository = AppRepository(App.getInstance().database!!.planDao())
@@ -31,6 +34,16 @@ class AddPlanActivity : AppCompatActivity() {
                 init(repository)
             }
 
+        val dataset :ArrayList<String> = arrayListOf()
+        viewManager = LinearLayoutManager(this)
+        adapterEditText = EditStepAdaptor(dataset)
+
+
+        stepsContainer = findViewById<RecyclerView>(R.id.stepsContainer).apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = adapterEditText
+        }
 
         spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(p0: AdapterView<*>?) {}
@@ -44,21 +57,13 @@ class AddPlanActivity : AppCompatActivity() {
             viewModel.setPlan(plan)
             onBackPressed()
         }
-        addStep()
+
         addStep.setOnClickListener{
             addStep()
         }
     }
 
     private fun addStep(){
-        val step = EditText(activity)
-        addToArrayList(step)
-        stepsContainer.addView(step, stepsArray.size)
+        adapterEditText.addItem()
     }
-
-    private fun addToArrayList(editText: EditText){
-        stepsContainer.addView(editText, stepsArray.size)
-        stepsArray.add(editText)
-    }
-
 }

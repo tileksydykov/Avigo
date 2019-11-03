@@ -82,6 +82,7 @@ class MainAdapter(var myDataset: ArrayList<Plan>, var context: PlaceholderFragme
             context.appRepository.deletePlan(plan)
             true
         }
+        holder.relativeLayout.elevation = 8.0f
     }
 
 
